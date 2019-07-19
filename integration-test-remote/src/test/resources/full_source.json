@@ -1,0 +1,1 @@
+{"string_value": "string_1","int_value": 1,"float_value": 0.1,"boolean_value": true,"numeric_value": 123.456,"timestamp_value": "2014-08-01 12:41:35.220000+00:00","date_value": "2014-08-01","time_value": "01:41:35.220000","datetime_value": "2014-08-01 01:41:35.220000","string_array": ["a_string_1", "a_string_2"]}
