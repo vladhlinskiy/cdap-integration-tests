@@ -135,28 +135,25 @@ public class GoogleCloudSpannerTest extends DataprocETLTestBase {
       .set("FLOAT_COL").to(Double.MIN_VALUE) // FLOAT64 can be used to store Double.MIN_VALUE
       .set("TIMESTAMP_COL").to(Timestamp.ofTimeSecondsAndNanos(NOW.toEpochSecond(), NOW.getNano()))
       .set("NOT_IN_THE_SCHEMA_COL").to("some string")
-      .set("ARRAY_INT_COL").toInt64Array(Arrays.asList(1L, 2L, 3L))
-      .set("ARRAY_STRING_COL").toStringArray(Arrays.asList("value1", "value2", "value3"))
-      .set("ARRAY_BOOL_COL").toBoolArray(Arrays.asList(true, false, true))
-      .set("ARRAY_FLOAT_COL").toFloat64Array(Arrays.asList(1.1, 2.2, 3.3))
+      .set("ARRAY_INT_COL").toInt64Array(Arrays.asList(1L, 2L, null))
+      .set("ARRAY_STRING_COL").toStringArray(Arrays.asList("value1", "value2", null))
+      .set("ARRAY_BOOL_COL").toBoolArray(Arrays.asList(true, false, null))
+      .set("ARRAY_FLOAT_COL").toFloat64Array(Arrays.asList(1.1, 2.2, null))
       .set("ARRAY_BYTES_COL").toBytesArray(
       Arrays.asList(
-        ByteArray.copyFrom("some value".getBytes()),
-        ByteArray.copyFrom("some value".getBytes()),
-        ByteArray.copyFrom("some value".getBytes()))
-    )
+        ByteArray.copyFrom("some value1".getBytes()),
+        ByteArray.copyFrom("some value2".getBytes()),
+        null))
       .set("ARRAY_TIMESTAMP_COL").toTimestampArray(
       Arrays.asList(
         Timestamp.ofTimeSecondsAndNanos(NOW.toEpochSecond(), NOW.getNano()),
         Timestamp.ofTimeSecondsAndNanos(NOW.toEpochSecond() + 1, NOW.getNano()),
-        Timestamp.ofTimeSecondsAndNanos(NOW.toEpochSecond() + 2, NOW.getNano()))
-    )
+        null))
       .set("ARRAY_DATE_COL").toDateArray(
       Arrays.asList(
         Date.fromYearMonthDay(NOW.getYear(), NOW.getMonthValue(), NOW.getDayOfMonth()),
         Date.fromYearMonthDay(NOW.getYear() + 1, NOW.getMonthValue(), NOW.getDayOfMonth()),
-        Date.fromYearMonthDay(NOW.getYear() + 2, NOW.getMonthValue(), NOW.getDayOfMonth()))
-    )
+        null))
       .build()
   );
 
